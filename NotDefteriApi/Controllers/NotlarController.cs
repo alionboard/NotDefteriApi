@@ -41,7 +41,7 @@ namespace NotDefteriApi.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult Duzenle(NotDuzenleDto dto)
         {
             if (ModelState.IsValid)
@@ -61,7 +61,20 @@ namespace NotDefteriApi.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpGet]
+        //[HttpGet]
+        //public IHttpActionResult Sil(int? id)
+        //{
+        //    var not = db.Notlar.FirstOrDefault(x => x.Id == id);
+        //    if (not != null && not.KullaniciId == User.Identity.GetUserId())
+        //    {
+        //        db.Notlar.Remove(not);
+        //        db.SaveChanges();
+        //        return Ok();
+        //    }
+        //    return BadRequest();
+        //}
+
+        [HttpDelete]
         public IHttpActionResult Sil(int? id)
         {
             var not = db.Notlar.FirstOrDefault(x => x.Id == id);
@@ -72,8 +85,8 @@ namespace NotDefteriApi.Controllers
                 return Ok();
             }
             return BadRequest();
-        }
 
+        }
 
     }
 }
